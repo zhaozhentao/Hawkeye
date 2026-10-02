@@ -1,0 +1,300 @@
+/**
+ * 人人拍 / 我的拜访 共享主题（蓝色玻璃拟态，移植自 demo 的 dark blue-glass theme）
+ * 全局引入（main.js）。尺寸单位使用 rpx（设计宽 375px，1px ≈ 2rpx），发丝边框保留 1px。
+ */
+
+page {
+  /* 主题变量 */
+  --accent: #a8cbff;
+  --accent-strong: #adcfff;
+  --deep: #edf3ff;
+  --muted: #9caec6;
+  --line: rgba(167, 192, 225, 0.12);
+  --bg: #14191f;
+  --up: #5bdd91;
+  --fall: #ff7474;
+
+  background-color: #15191f;
+  color: #e3ebf7;
+  font-size: 28rpx;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+/* ------------------------------ 页面骨架 ------------------------------ */
+.screen {
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 固定渐变背景 + 点阵叠层 */
+.bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: #15191f;
+  background-image: radial-gradient(ellipse at 68% -8%, #376ba4aa 0, transparent 54%),
+    radial-gradient(ellipse at 7% 8%, #77909460 0, transparent 30%),
+    linear-gradient(180deg, #203d60 0%, #1b2a3e 32%, #15191f 76%);
+}
+.bg::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, #b7d5ff24 1px, transparent 1.8px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(#0009, transparent 80%);
+  mask-image: linear-gradient(#0009, transparent 80%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 20rpx 32rpx 200rpx;
+  box-sizing: border-box;
+}
+
+/* ------------------------------ 页头 ------------------------------ */
+.page-head {
+  margin-bottom: 34rpx;
+}
+.eyebrow {
+  font-size: 18rpx;
+  letter-spacing: 4rpx;
+  color: #a7c9ef;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+.page-head .h1 {
+  font-size: 50rpx;
+  line-height: 1.2;
+  color: #f1f5fc;
+  font-weight: 550;
+  letter-spacing: 2rpx;
+}
+.page-head .sub {
+  color: #a1b2c9;
+  font-size: 22rpx;
+  margin-top: 12rpx;
+}
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 12rpx;
+  border: 1px solid #b4c9e42a;
+  border-radius: 40rpx;
+  padding: 10rpx 16rpx;
+  color: #bcd4f1;
+  font-size: 18rpx;
+  background: #b6c6e00b;
+}
+.live .dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #99c9ed;
+  box-shadow: 0 0 9px #83bbf95c;
+}
+
+/* ------------------------------ 卡片 ------------------------------ */
+.card {
+  background: linear-gradient(135deg, #35455c85, #1e2733c9);
+  border: 1px solid #a8c1df25;
+  border-radius: 30rpx;
+  box-shadow: inset 0 1px 0 #ffffff06, 0 10px 25px #070e191c;
+  overflow: hidden;
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+  padding: 36rpx 36rpx 0;
+}
+.card-title {
+  display: flex;
+  align-items: baseline;
+  gap: 14rpx;
+}
+.card-title .h2 {
+  font-size: 30rpx;
+  font-weight: 650;
+  color: #e7effb;
+}
+.card-title .num {
+  font-size: 20rpx;
+  color: #90a6c0;
+  letter-spacing: 2rpx;
+}
+.content-pad {
+  padding: 34rpx;
+}
+
+/* ------------------------------ 文本 / 标签 ------------------------------ */
+.quiet {
+  color: #9db1cd;
+  font-size: 22rpx;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6rpx 16rpx;
+  border: 1px solid #a9c6ec2b;
+  border-radius: 10rpx;
+  background: #abc8ed10;
+  color: #b9d4f6;
+  font-size: 20rpx;
+}
+.tag.amber {
+  color: #e6c391;
+  background: #ddaf6a12;
+  border-color: #ddaf6a30;
+}
+
+/* ------------------------------ 按钮 ------------------------------ */
+.btn {
+  border: 0;
+  background: none;
+  color: inherit;
+  line-height: 1.6;
+}
+.btn::after {
+  border: 0;
+}
+.soft-btn {
+  background: #a7c7ef16;
+  color: #cee3ff;
+  border: 1px solid #a9c8ed36;
+  padding: 16rpx 30rpx;
+  border-radius: 16rpx;
+  font-size: 24rpx;
+}
+.primary {
+  border: 1px solid #e0eaff44;
+  background: linear-gradient(120deg, #d9e7fa, #afc9ea);
+  color: #213958;
+  font-weight: 600;
+  padding: 20rpx 40rpx;
+  border-radius: 16rpx;
+  font-size: 26rpx;
+}
+.textbtn {
+  font-size: 22rpx;
+  color: #a7b9d1;
+  padding: 10rpx 0;
+}
+
+/* ------------------------------ 搜索框 ------------------------------ */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  background: #14203150;
+  border: 1px solid #a0b9d92b;
+  border-radius: 16rpx;
+  padding: 0 22rpx;
+  color: #a3b9d7;
+}
+.search .ico {
+  width: 32rpx;
+  height: 32rpx;
+  flex-shrink: 0;
+}
+.search input {
+  flex: 1;
+  min-width: 0;
+  height: 76rpx;
+  line-height: 76rpx;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 24rpx;
+  color: #e6efff;
+}
+.search input::placeholder {
+  color: #8399b4;
+}
+
+/* ------------------------------ 分段选择器 ------------------------------ */
+.seg {
+  display: flex;
+  gap: 8rpx;
+  background: #111c2a50;
+  border: 1px solid #a8c1df22;
+  border-radius: 20rpx;
+  padding: 8rpx;
+  box-shadow: inset 0 1px 3px #00000014;
+}
+.seg-scroll {
+  white-space: nowrap;
+}
+.seg-btn {
+  flex: 1;
+  white-space: nowrap;
+  text-align: center;
+  padding: 14rpx 18rpx;
+  border-radius: 14rpx;
+  font-size: 22rpx;
+  color: #a8b9d0;
+}
+.seg-btn.on {
+  background: linear-gradient(135deg, #c2d5ec2b, #b5cee715);
+  color: #eff6ff;
+  box-shadow: inset 0 0 0 1px #bfd6f32e, 0 3px 9px #00000012;
+  font-weight: 650;
+}
+
+/* ------------------------------ 统计块 ------------------------------ */
+.stat .label {
+  font-size: 22rpx;
+  color: #a7b8d1;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.stat .value {
+  display: flex;
+  align-items: baseline;
+  margin-top: 8rpx;
+  line-height: 1.3;
+}
+.stat .value strong {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #f0f5ff;
+  letter-spacing: -1px;
+}
+.stat .unit {
+  font-size: 20rpx;
+  color: #9aadc6;
+  margin-left: 8rpx;
+}
+
+/* ------------------------------ 空状态 ------------------------------ */
+.empty {
+  padding: 68rpx 24rpx;
+  text-align: center;
+  color: #97abc6;
+  font-size: 24rpx;
+}
+
+/* ------------------------------ 通用行 ------------------------------ */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+.up {
+  color: var(--up);
+}
+.fall {
+  color: var(--fall);
+}

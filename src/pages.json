@@ -1,0 +1,35 @@
+{
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/renrenpai/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "人人拍",
+        "backgroundColor": "#15191f",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/visits/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "我的拜访",
+        "backgroundColor": "#15191f",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F7F8FA",
+    "backgroundColor": "#FFFFFF"
+  }
+}
